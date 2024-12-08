@@ -4,13 +4,12 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f0f0f0;
 }
 
 .login-container {
-    background-color: white;
+    background-color: #FAF6E3;
     padding: 40px;
-    border-radius: 8px;
+    border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 400px;
@@ -21,6 +20,7 @@ h1 {
     margin-bottom: 20px;
     font-size: 24px;
     color: #333;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .login-options {
@@ -40,18 +40,16 @@ h1 {
 }
 
 .google {
-    background-color: #4285F4;
-    color: white;
+    background-color: white;
+    border: 1px solid #ccc;
 }
 
 .facebook {
     background-color: #3b5998;
-    color: white;
 }
 
 .apple {
     background-color: #000;
-    color: white;
 }
 
 .divider {
@@ -72,9 +70,10 @@ input[type="email"],
 input[type="password"] {
     padding: 12px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 20px;
     font-size: 14px;
     width: 100%;
+    text-align: center;
 }
 
 .submit-btn {
@@ -82,7 +81,7 @@ input[type="password"] {
     background-color: #4CAF50;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 20px;
     font-size: 16px;
     cursor: pointer;
 }
@@ -102,4 +101,7 @@ input[type="password"] {
 
 .forgot-password a:hover {
     text-decoration: underline;
+}
+.login-btn{
+    border-radius: 20px;
 }
