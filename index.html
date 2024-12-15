@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<head>
+    <title>TASK MANAGEMENT SYSTEM</title>
+    <style>
+        body {
+            padding: 20px;
+        }
+        .dashboard-row {
+            display: flex;
+            gap: 20px;
+        }
+        .todo-container {
+            width: 30%;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .quote-carousel {
+            width: 30%;
+        }
+        .quote-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .feedback-table-container {
+            width: 40%;
+        }
+        .completed {
+            text-decoration: line-through;
+            color: gray;
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#addTask').click(function () {
+                const taskDate = $('#taskDate').val();
+                const taskText = $('#taskInput').val().trim();
+                if (!taskDate) {
+                   alert('Please select a date!');
+                    return;
+                }
+                if (taskText) {
+                    if (!$(`#date-${taskDate}`).length) {
+                        $('#taskContainer').append(`
+                            <div id="date-${taskDate}" class="mb-3">
+                                <div class="date-label"><strong>${taskDate}</strong></div>
+                                <ul class="list-group"></ul>
+                                </div>`);
+                    }
+                    const taskItem = `<li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span class="task-text">${taskText}</span>
+                            <div>
+                                <button class="btn btn-success btn-sm complete-task">Complete</button>
+                                <button class="btn btn-danger btn-sm delete-task">Delete</button>
+                            </div>
+                        </li>`;
+                    $(`#date-${taskDate} ul`).append(taskItem);
+                    $('#taskInput').val(''); // Clear input field
+                } else {
+                    alert('Please enter a task!');
+                }
+            });
+            $(document).on('click', '.complete-task', function () {
+                $(this).closest('li').find('.task-text').toggleClass('completed');
+            });
+            $(document).on('click', '.delete-task', function () {
+                $(this).closest('li').remove();
+            });
+            $('#addFeedback').click(function () {
+                const feedbackDate = $('#feedbackDate').val();
+                const feedbackText = $('#feedbackInput').val().trim();
+                if (feedbackDate && feedbackText) {
+                    const feedbackRow = `
+                        <tr>
+                            <td>${feedbackDate}</td>
+                            <td>${feedbackText}</td>
+                        </tr>`;
+                    $('#feedbackTableBody').append(feedbackRow);
+                    $('#feedbackInput').val(''); // Clear input field
+                } else {
+                    alert('Please fill in both date and feedback!');
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1 class="text-center">TASK MANAGEMENT SYSTEM</h1>
+    <div class="dashboard-row">
+        <div class="todo-container">
+            <h2 class="text-center">To-Do List</h2>
+            <input type="date" id="taskDate" class="form-control">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <div class="input-group">
+                        <input type="text" id="taskInput" class="form-control" placeholder="Add a new task...">
+                        <button id="addTask" class="btn btn-primary">Add</button>
+                    </div>
+                    <div id="taskContainer">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="feedback-table-container">
+            <h2 class="text-center">Feedback Table</h2>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Feedback</th>
+                    </tr>
+                </thead>
+                <tbody id="feedbackTableBody">
+                </tbody>
+            </table>
+            <div class="input-group">
+                <input type="date" id="feedbackDate" class="form-control">
+                <input type="text" id="feedbackInput" class="form-control" placeholder="Write feedback...">
+                <button id="addFeedback" class="btn btn-primary">Add</button>
+            </div>
+        </div>
+        <div class="quote-carousel">
+            <div id="animeQuotesCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="https://www.linearity.io/blog/content/images/2024/02/Quote-2.png" class="quote-image" alt="Quote 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://www.linearity.io/blog/content/images/2024/02/Quote-3.png" class="quote-image" alt="Quote 2">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://www.linearity.io/blog/content/images/2024/02/Quote-4.png" class="quote-image" alt="Quote 3">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://www.linearity.io/blog/content/images/2024/02/Quote-5.png" class="quote-image" alt="Quote 4">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#animeQuotesCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#animeQuotesCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+           </div>
+        </div>
+    </div>
+</body>
+</html>
