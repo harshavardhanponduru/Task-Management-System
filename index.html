@@ -3,198 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TASK MANAGEMENT SYSTEM</title>
+    <title>Task Management System</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
-            font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-            background: linear-gradient(135deg, #007bff, #6c63ff);
             color: #333;
             margin: 0;
             padding: 20px;
         }
-        h1, h2 {
-            color: #ffffff;
-        }
-        .dashboard-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: space-between;
-        }
-        .todo-container, .feedback-table-container, .graph-container {
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            flex: 1;
-            max-width: 32%;
+        h1 {
+            color: #f80000;
+            font-weight: 300;
+            text-align: center;
+            margin-bottom: 20px;
         }
         .todo-container {
-            max-width: 30%;
-        }
-        .feedback-table-container {
-            max-width: 38%;
-        }
-        .graph-container {
-            max-width: 30%;
-        }
-        .card {
-            border: none;
+            background: rgba(255, 255, 255, 0.3);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
-        }
-        .btn-primary {
-            background-color: #007bff;
-            border: none;
-            transition: all 0.3s ease;
-        }
-        .btn-primary:hover {
-            background-color: #0056b3;
+            padding: 20px;
+            max-width: 500px;
+            margin: 0 auto;
+            border-radius: 20px;
         }
         .completed {
             text-decoration: line-through;
             color: gray;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        .btn-success, .btn-danger {
+            margin-left: 5px;
         }
     </style>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         $(document).ready(function () {
-            const taskCompletionCount = {};
-
             $('#addTask').click(function () {
-                const taskDate = $('#taskDate').val();
                 const taskText = $('#taskInput').val().trim();
-                if (!taskDate) {
-                    alert('Please select a date!');
-                    return;
-                }
                 if (taskText) {
-                    if (!$(`#date-${taskDate}`).length) {
-                        $('#taskContainer').append(`
-                            <div id="date-${taskDate}" class="mb-3">
-                                <div class="date-label"><strong>${taskDate}</strong></div>
-                                <ul class="list-group"></ul>
-                                </div>`);
-                    }
-                    const taskItem = `<li class="list-group-item d-flex justify-content-between align-items-center">
+                    const taskItem = `
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
                             <span class="task-text">${taskText}</span>
                             <div>
                                 <button class="btn btn-success btn-sm complete-task">Complete</button>
                                 <button class="btn btn-danger btn-sm delete-task">Delete</button>
                             </div>
                         </li>`;
-                    $(`#date-${taskDate} ul`).append(taskItem);
-                    $('#taskInput').val(''); // Clear input field
+                    $('#taskList').append(taskItem);
+                    $('#taskInput').val('');
                 } else {
                     alert('Please enter a task!');
                 }
             });
 
             $(document).on('click', '.complete-task', function () {
-                const taskDate = $(this).closest('div').prev().text();
                 $(this).closest('li').find('.task-text').toggleClass('completed');
-
-                if (!taskCompletionCount[taskDate]) {
-                    taskCompletionCount[taskDate] = 0;
-                }
-                taskCompletionCount[taskDate]++;
-                updateGraph();
             });
 
             $(document).on('click', '.delete-task', function () {
                 $(this).closest('li').remove();
             });
-
-            $('#addFeedback').click(function () {
-                const feedbackDate = $('#feedbackDate').val();
-                const feedbackText = $('#feedbackInput').val().trim();
-                if (feedbackDate && feedbackText) {
-                    const feedbackRow = `
-                        <tr>
-                            <td>${feedbackDate}</td>
-                            <td>${feedbackText}</td>
-                        </tr>`;
-                    $('#feedbackTableBody').append(feedbackRow);
-                    $('#feedbackInput').val(''); // Clear input field
-                } else {
-                    alert('Please fill in both date and feedback!');
-                }
-            });
-
-            function updateGraph() {
-                const labels = Object.keys(taskCompletionCount);
-                const data = Object.values(taskCompletionCount);
-
-                taskChart.data.labels = labels;
-                taskChart.data.datasets[0].data = data;
-                taskChart.update();
-            }
-
-            const ctx = document.getElementById('taskGraph').getContext('2d');
-            const taskChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: [],
-                    datasets: [{
-                        label: 'Tasks Completed',
-                        data: [],
-                        backgroundColor: 'rgba(54, 162, 235, 0.6)',
-                        borderColor: 'rgba(54, 162, 235, 1)',
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true
-                        }
-                    }
-                }
-            });
         });
     </script>
 </head>
 <body>
-    <h1 class="text-center">TASK MANAGEMENT SYSTEM</h1>
-    <div class="dashboard-row">
-        <div class="todo-container">
-            <h2 class="text-center">To-Do List</h2>
-            <input type="date" id="taskDate" class="form-control">
-            <div class="card">
-                <div class="card-body">
-                    <div class="input-group">
-                        <input type="text" id="taskInput" class="form-control" placeholder="Add a new task...">
-                        <button id="addTask" class="btn btn-primary">Add</button>
-                    </div>
-                    <div id="taskContainer"></div>
-                </div>
-            </div>
+
+    <h1>Task Management System</h1>
+    <div class="todo-container">
+        <h2 class="text-center mb-3">To-Do List</h2>
+        <div class="input-group mb-3">
+            <input type="text" id="taskInput" class="form-control" placeholder="Add a new task...">
+            <button id="addTask" class="btn btn-primary">Add</button>
         </div>
-        <div class="feedback-table-container">
-            <h2 class="text-center">Feedback Table</h2>
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Feedback</th>
-                    </tr>
-                </thead>
-                <tbody id="feedbackTableBody"></tbody>
-            </table>
-            <div class="input-group">
-                <input type="date" id="feedbackDate" class="form-control">
-                <input type="text" id="feedbackInput" class="form-control" placeholder="Write feedback...">
-                <button id="addFeedback" class="btn btn-primary">Add</button>
-            </div>
-        </div>
-        <div class="graph-container">
-            <h2 class="text-center">Tasks Completed</h2>
-            <canvas id="taskGraph" width="400" height="400"></canvas>
-        </div>
+        <ul id="taskList" class="list-group">
+            <!-- Tasks will appear here -->
+        </ul>
     </div>
 </body>
 </html>
