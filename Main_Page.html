@@ -13,7 +13,15 @@
       font-family: Arial, sans-serif;
     }
     .chart-container {
-      margin: 20px 0;
+      flex: 1;
+      margin: 10px;
+      max-width: 200px;
+    }
+    .chart-row {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
     }
   </style>
 </head>
@@ -56,18 +64,32 @@
       </div>
     </div>
 
+    <!-- Completed Tasks -->
+    <div class="card mb-4">
+      <div class="card-header">
+        <h5>Completed Tasks</h5>
+      </div>
+      <div class="card-body">
+        <ul id="completedTaskList" class="list-group">
+          <!-- Completed tasks will be dynamically added here -->
+        </ul>
+      </div>
+    </div>
+
     <!-- Charts Section -->
-    <div class="chart-container">
-      <canvas id="pieChart"></canvas>
-    </div>
-    <div class="chart-container">
-      <canvas id="barChart"></canvas>
-    </div>
-    <div class="chart-container">
-      <canvas id="lineChart"></canvas>
-    </div>
-    <div class="chart-container">
-      <canvas id="histogram"></canvas>
+    <div class="chart-row">
+      <div class="chart-container">
+        <canvas id="pieChart"></canvas>
+      </div>
+      <div class="chart-container">
+        <canvas id="barChart"></canvas>
+      </div>
+      <div class="chart-container">
+        <canvas id="lineChart"></canvas>
+      </div>
+      <div class="chart-container">
+        <canvas id="histogram"></canvas>
+      </div>
     </div>
   </div>
 
@@ -115,6 +137,8 @@
         if (!taskItem.find('span').hasClass('completed')) {
           taskItem.find('span').addClass('completed');
           taskData[priority].completed += 1;
+          $('#completedTaskList').append(taskItem);
+          taskItem.find('.complete-btn').remove();
           updateCharts();
         }
       });
