@@ -26,12 +26,35 @@
     .calendar {
       margin: 20px 0;
     }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #343a40;
+      color: white;
+    }
+    .header .profile-icon {
+      cursor: pointer;
+    }
+    .footer {
+      background-color: #343a40;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
   </style>
 </head>
 <body>
+      <!-- Header -->
+  <div class="header">
+    <h2>Task Management System</h2>
+    <img src="https://www.freepik.com/free-vector/isolated-young-handsome-man-different-poses-white-background-illustration_36332638.htm#fromView=keyword&page=1&position=22&uuid=b4b85e23-2caf-4097-8a03-65af9a16ccfb" alt="Profile Icon" class="profile-icon" onclick="location.href='profile.html'">
+  </div>
   <div class="container my-4">
-    <h2 class="text-center">Task Management System with Charts</h2>
-
     <!-- Task Input Form -->
     <div class="card my-4">
       <div class="card-body">
@@ -105,6 +128,11 @@
         <canvas id="histogram"></canvas>
       </div>
     </div>
+  </div>
+  <!-- Footer -->
+  <div class="footer">
+    <p>Contact Us: support@example.com | Phone: +123 456 7890</p>
+    <p>&copy; 2024 Task Management System. All rights reserved.</p>
   </div>
 
   <!-- jQuery and Bootstrap JS -->
