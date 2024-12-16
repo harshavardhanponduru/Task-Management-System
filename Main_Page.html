@@ -3,27 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Task Management System</title>
+  <title>Task Management with Charts</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     body {
       background-color: #f8f9fa;
       font-family: Arial, sans-serif;
     }
-    .task-list {
-      max-height: 400px;
-      overflow-y: auto;
-    }
-    .completed {
-      text-decoration: line-through;
-      color: gray;
+    .chart-container {
+      margin: 20px 0;
     }
   </style>
 </head>
 <body>
   <div class="container my-4">
-    <h2 class="text-center">Task Management System</h2>
+    <h2 class="text-center">Task Management System with Charts</h2>
 
     <!-- Task Input Form -->
     <div class="card my-4">
@@ -49,28 +45,50 @@
     </div>
 
     <!-- Task List -->
-    <div class="card">
+    <div class="card mb-4">
       <div class="card-header">
         <h5>Task List</h5>
       </div>
-      <div class="card-body task-list">
+      <div class="card-body">
         <ul id="taskList" class="list-group">
-          <!-- Dynamic tasks will be appended here -->
+          <!-- Tasks will be dynamically added here -->
         </ul>
       </div>
+    </div>
+
+    <!-- Charts Section -->
+    <div class="chart-container">
+      <canvas id="pieChart"></canvas>
+    </div>
+    <div class="chart-container">
+      <canvas id="barChart"></canvas>
+    </div>
+    <div class="chart-container">
+      <canvas id="lineChart"></canvas>
+    </div>
+    <div class="chart-container">
+      <canvas id="histogram"></canvas>
     </div>
   </div>
 
   <!-- jQuery and Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
   <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
+      const taskData = {
+        High: { total: 0, completed: 0 },
+        Medium: { total: 0, completed: 0 },
+        Low: { total: 0, completed: 0 }
+      };
+
       // Add Task
-      $('#taskForm').submit(function(e) {
-        e.preventDefault(); // Prevent form submission
+      $('#taskForm').submit(function (e) {
+        e.preventDefault();
         const task = $('#taskInput').val();
         const priority = $('#priority').val();
+
         if (task.trim() !== "") {
           const taskItem = `
             <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -79,22 +97,129 @@
                 <button class="btn btn-success btn-sm complete-btn">Complete</button>
                 <button class="btn btn-danger btn-sm delete-btn">Delete</button>
               </div>
-            </li>
-          `;
+            </li>`;
           $('#taskList').append(taskItem);
-          $('#taskInput').val(''); // Clear input
+
+          taskData[priority].total += 1;
+          updateCharts();
+
+          $('#taskInput').val('');
         }
       });
 
       // Mark Task as Complete
-      $(document).on('click', '.complete-btn', function() {
-        $(this).closest('li').find('span').toggleClass('completed');
+      $(document).on('click', '.complete-btn', function () {
+        const taskItem = $(this).closest('li');
+        const priority = taskItem.find('.badge').text().trim();
+
+        if (!taskItem.find('span').hasClass('completed')) {
+          taskItem.find('span').addClass('completed');
+          taskData[priority].completed += 1;
+          updateCharts();
+        }
       });
 
       // Delete Task
-      $(document).on('click', '.delete-btn', function() {
-        $(this).closest('li').remove();
+      $(document).on('click', '.delete-btn', function () {
+        const taskItem = $(this).closest('li');
+        const priority = taskItem.find('.badge').text().trim();
+        const isCompleted = taskItem.find('span').hasClass('completed');
+
+        taskData[priority].total -= 1;
+        if (isCompleted) {
+          taskData[priority].completed -= 1;
+        }
+
+        taskItem.remove();
+        updateCharts();
       });
+
+      // Initialize Charts
+      const pieChartCtx = document.getElementById('pieChart').getContext('2d');
+      const barChartCtx = document.getElementById('barChart').getContext('2d');
+      const lineChartCtx = document.getElementById('lineChart').getContext('2d');
+      const histogramCtx = document.getElementById('histogram').getContext('2d');
+
+      const pieChart = new Chart(pieChartCtx, {
+        type: 'pie',
+        data: {
+          labels: ['High', 'Medium', 'Low'],
+          datasets: [{
+            data: [0, 0, 0],
+            backgroundColor: ['#dc3545', '#ffc107', '#28a745']
+          }]
+        }
+      });
+
+      const barChart = new Chart(barChartCtx, {
+        type: 'bar',
+        data: {
+          labels: ['High', 'Medium', 'Low'],
+          datasets: [{
+            label: 'Total Tasks',
+            data: [0, 0, 0],
+            backgroundColor: ['#dc3545', '#ffc107', '#28a745']
+          }, {
+            label: 'Completed Tasks',
+            data: [0, 0, 0],
+            backgroundColor: ['#6c757d', '#adb5bd', '#ced4da']
+          }]
+        }
+      });
+
+      const lineChart = new Chart(lineChartCtx, {
+        type: 'line',
+        data: {
+          labels: ['High', 'Medium', 'Low'],
+          datasets: [{
+            label: 'Completion Rate',
+            data: [0, 0, 0],
+            borderColor: '#007bff',
+            fill: false
+          }]
+        }
+      });
+
+      const histogram = new Chart(histogramCtx, {
+        type: 'bar',
+        data: {
+          labels: ['High', 'Medium', 'Low'],
+          datasets: [{
+            label: 'Task Distribution',
+            data: [0, 0, 0],
+            backgroundColor: ['#17a2b8', '#20c997', '#fd7e14']
+          }]
+        }
+      });
+
+      // Update Charts
+      function updateCharts() {
+        const highData = taskData.High;
+        const mediumData = taskData.Medium;
+        const lowData = taskData.Low;
+
+        const completionRate = priority =>
+          taskData[priority].total === 0
+            ? 0
+            : Math.round((taskData[priority].completed / taskData[priority].total) * 100);
+
+        pieChart.data.datasets[0].data = [highData.total, mediumData.total, lowData.total];
+        pieChart.update();
+
+        barChart.data.datasets[0].data = [highData.total, mediumData.total, lowData.total];
+        barChart.data.datasets[1].data = [highData.completed, mediumData.completed, lowData.completed];
+        barChart.update();
+
+        lineChart.data.datasets[0].data = [
+          completionRate('High'),
+          completionRate('Medium'),
+          completionRate('Low')
+        ];
+        lineChart.update();
+
+        histogram.data.datasets[0].data = [highData.total, mediumData.total, lowData.total];
+        histogram.update();
+      }
 
       // Get Priority Color
       function getPriorityColor(priority) {
