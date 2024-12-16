@@ -23,6 +23,9 @@
       align-items: center;
       flex-wrap: wrap;
     }
+    .calendar {
+      margin: 20px 0;
+    }
   </style>
 </head>
 <body>
@@ -50,6 +53,17 @@
           </div>
         </form>
       </div>
+    </div>
+
+    <!-- Calendar -->
+    <div class="calendar">
+      <input type="date" id="taskDate" class="form-control">
+    </div>
+
+    <!-- Sort Options -->
+    <div class="d-flex justify-content-between mb-3">
+      <button id="sortAlpha" class="btn btn-secondary">Sort Alphabetically</button>
+      <button id="sortDate" class="btn btn-secondary">Sort by Date</button>
     </div>
 
     <!-- Task List -->
@@ -105,22 +119,20 @@
         Low: { total: 0, completed: 0 }
       };
 
+      const tasks = [];
+      const completedTasks = [];
+
       // Add Task
       $('#taskForm').submit(function (e) {
         e.preventDefault();
         const task = $('#taskInput').val();
         const priority = $('#priority').val();
+        const date = $('#taskDate').val() || new Date().toISOString().split('T')[0];
 
         if (task.trim() !== "") {
-          const taskItem = `
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              <span>${task} <span class="badge bg-${getPriorityColor(priority)} ms-2">${priority}</span></span>
-              <div>
-                <button class="btn btn-success btn-sm complete-btn">Complete</button>
-                <button class="btn btn-danger btn-sm delete-btn">Delete</button>
-              </div>
-            </li>`;
-          $('#taskList').append(taskItem);
+          const taskObj = { name: task, priority, date };
+          tasks.push(taskObj);
+          renderTasks();
 
           taskData[priority].total += 1;
           updateCharts();
@@ -131,32 +143,70 @@
 
       // Mark Task as Complete
       $(document).on('click', '.complete-btn', function () {
-        const taskItem = $(this).closest('li');
-        const priority = taskItem.find('.badge').text().trim();
+        const taskIndex = $(this).data('index');
+        const taskObj = tasks.splice(taskIndex, 1)[0];
 
-        if (!taskItem.find('span').hasClass('completed')) {
-          taskItem.find('span').addClass('completed');
-          taskData[priority].completed += 1;
-          $('#completedTaskList').append(taskItem);
-          taskItem.find('.complete-btn').remove();
-          updateCharts();
-        }
+        taskData[taskObj.priority].completed += 1;
+        completedTasks.push(taskObj);
+
+        renderTasks();
+        renderCompletedTasks();
+        updateCharts();
       });
 
       // Delete Task
       $(document).on('click', '.delete-btn', function () {
-        const taskItem = $(this).closest('li');
-        const priority = taskItem.find('.badge').text().trim();
-        const isCompleted = taskItem.find('span').hasClass('completed');
+        const taskIndex = $(this).data('index');
+        const taskObj = tasks.splice(taskIndex, 1)[0];
 
-        taskData[priority].total -= 1;
-        if (isCompleted) {
-          taskData[priority].completed -= 1;
-        }
-
-        taskItem.remove();
+        taskData[taskObj.priority].total -= 1;
+        renderTasks();
         updateCharts();
       });
+
+      // Sort Alphabetically
+      $('#sortAlpha').click(function () {
+        tasks.sort((a, b) => a.name.localeCompare(b.name));
+        completedTasks.sort((a, b) => a.name.localeCompare(b.name));
+        renderTasks();
+        renderCompletedTasks();
+      });
+
+      // Sort by Date
+      $('#sortDate').click(function () {
+        tasks.sort((a, b) => new Date(a.date) - new Date(b.date));
+        completedTasks.sort((a, b) => new Date(a.date) - new Date(b.date));
+        renderTasks();
+        renderCompletedTasks();
+      });
+
+      // Render Tasks
+      function renderTasks() {
+        $('#taskList').empty();
+        tasks.forEach((task, index) => {
+          const taskItem = `
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <span>${task.name} <span class="badge bg-${getPriorityColor(task.priority)} ms-2">${task.priority}</span> <small class="text-muted">${task.date}</small></span>
+              <div>
+                <button class="btn btn-success btn-sm complete-btn" data-index="${index}">Complete</button>
+                <button class="btn btn-danger btn-sm delete-btn" data-index="${index}">Delete</button>
+              </div>
+            </li>`;
+          $('#taskList').append(taskItem);
+        });
+      }
+
+      // Render Completed Tasks
+      function renderCompletedTasks() {
+        $('#completedTaskList').empty();
+        completedTasks.forEach((task) => {
+          const taskItem = `
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <span>${task.name} <span class="badge bg-${getPriorityColor(task.priority)} ms-2">${task.priority}</span> <small class="text-muted">${task.date}</small></span>
+            </li>`;
+          $('#completedTaskList').append(taskItem);
+        });
+      }
 
       // Initialize Charts
       const pieChartCtx = document.getElementById('pieChart').getContext('2d');
