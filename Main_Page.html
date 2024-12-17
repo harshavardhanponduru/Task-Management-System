@@ -9,7 +9,7 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     body {
-      background-color: #f8f9fa;
+      background-color:whitesmoke;
       font-family: Arial, sans-serif;
     }
     .chart-container {
@@ -31,28 +31,37 @@
       justify-content: space-between;
       align-items: center;
       padding: 10px 20px;
-      background-color: #343a40;
+      background-color: #213555;
       color: white;
+      text-align: center;
     }
     .header .profile-icon {
       cursor: pointer;
     }
     .footer {
-      background-color: #343a40;
+      background-color: #213555;
       color: white;
       text-align: center;
       padding: 10px;
-      position: relative;
+      position: absolute;
       bottom: 0;
       width: 100%;
+    }
+    .profile-icon {
+        border: 1px solid whitesmoke;
+        border-radius: 100%;
+    }
+    .img1 {
+        height: 100px;
+        width: 1600px;
     }
   </style>
 </head>
 <body>
       <!-- Header -->
   <div class="header">
-    <h2>Task Management System</h2>
-    <img src="https://www.freepik.com/free-vector/isolated-young-handsome-man-different-poses-white-background-illustration_36332638.htm#fromView=keyword&page=1&position=22&uuid=b4b85e23-2caf-4097-8a03-65af9a16ccfb" alt="Profile Icon" class="profile-icon" onclick="location.href='profile.html'">
+    <h2><img src="./PLANICO.svg" class="img1"></h2>
+    <img src="https://www.svgrepo.com/show/404544/avatar-man-profile-user-7.svg" alt="Profile Icon" class="profile-icon" onclick="location.href='profile.html'" height="60px" width="60px">
   </div>
   <div class="container my-4">
     <!-- Task Input Form -->
@@ -131,7 +140,7 @@
   </div>
   <!-- Footer -->
   <div class="footer">
-    <p>Contact Us: support@example.com | Phone: +123 456 7890</p>
+    <p>Contact Us: harshavardhanponduru@gmail.com | Phone: +123 456 7890</p>
     <p>&copy; 2024 Task Management System. All rights reserved.</p>
   </div>
 
