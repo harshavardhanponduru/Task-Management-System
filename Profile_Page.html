@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+        .profile-container {
+            min-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+        .profile-details {
+            text-align: center;
+        }
+        .profile-details h2 {
+            margin-bottom: 10px;
+        }
+        .profile-details p {
+            margin: 5px 0;
+            color: #6c757d;
+        }
+        .back-btn {
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+        }
+        table, tr, td { padding-left: 100px; padding-right: 100px;}
+        .btn {background-color: #213555; color: whitesmoke;}
+    </style>
+</head>
+<body>
+    <table><tr><td>
+    <div class="profile-container">
+        <div class="profile-details text-center">
+            <img src="https://lh3.googleusercontent.com/pw/AP1GczO-HsyAHoX7RdmOobaA2tgWM7I6M-dxANBKDtfBMzk9MG_ThZj6BsZzdRlhay4gocfy0OltSXpK5tcmYRyRal8DeAp3iS-Z5xcQvPl-4GiZ_GLoPQBXPvX88vFNIN_0WpI4b29Cm0t0eqvFN_tczHZhoKbSHIXfRgRpUj0jUgUi3YJO98JoNpDbh__AmEpM-DL0i4gM0I15moACAZmc4ctbSD5pBdzkII42TkJHX9MQmB2JAsqWf1R2y6Ks7DTv7psv7Lc7zeY-cNDNBeNbFkPa8Su8r9_U60rZbEcFRlOVD9sWUD4OU6LZzLTlDWDfLwpqkG3exRP50aMzV4rI_7-R0F0Y9cWMiq6jlreGtUnTkw9Im0kM4KUzxlC5jKdrfO7Cxd3k1Eaj-covgNAzZtQOvL6fGC7nFrOgnMgeSbJQVhoGD5xFKx27LURSSdF0tm_bbYbr10IxdDkF2d-npw0fitvjWYeEbpy91Q-kdakm5JatndyK0C5GSDk4g3JoSD-u0R2V1V0A81VUv7lMl6fpQVtaEn-4IN5HziLulHPYzkQM1tka2WcmUoPGeolkIzmbtBa5EA_raYL3WulewQ_AWhnlnZca7SUgYCO4At-oOWeF8DrTh99tMqr4HCAkCY2N3RTMaDAgin2IkXFLIICwnykUNu_kPEIIuUqXsLZe_KPynkxYXZ8XcWEpFwwav9X3jQkwAUEEcwSXqJ90ozYRMO5WfspUlTYiGqimE57wy5efV0_SyykFk4uACcnYxSZRI1WkfEYeL5hr-UTsi7w_NDIZqIwJuQcmlKh5nC3Bh5bYt1xyLFn1vpsaxyY7YUhhqCqGHfK1T_ZJnxw5EIZXBrhTjaVfavGLWWmirWb7KUelKq-z90PhI3qf7mNePaUTio81KrQO4IDZpGLRPw6bO7mKq44x0nSaXBc1HCzVskcpihXM-EO2pdU7XXGHcxizZ7_2_C3Ur1Id3q193bRg6wKbH9dh24HNFIUhTtS33t1XezcCpBEKlHFjngFI_BeG3w=w1024-h1024-s-no?authuser=0" alt="User Profile" class="profile-image">
+            <h2>P Harshavardhan</h2>
+            <p><strong>Email:</strong> harshavardhanponduru@gmail.com</p>
+            <p><strong>Phone:</strong> +91 955 626 3453</p>
+            <p><strong>Role:</strong> Developer</p>
+            <p><strong>Group:</strong> B</p>
+            <p><strong>Roll Number:</strong> 2341008007</p>
+    </td>
+
+    <td><div class="profile-container">
+        <div class="profile-details text-center">
+            <img src="https://lh3.googleusercontent.com/pw/AP1GczO-HsyAHoX7RdmOobaA2tgWM7I6M-dxANBKDtfBMzk9MG_ThZj6BsZzdRlhay4gocfy0OltSXpK5tcmYRyRal8DeAp3iS-Z5xcQvPl-4GiZ_GLoPQBXPvX88vFNIN_0WpI4b29Cm0t0eqvFN_tczHZhoKbSHIXfRgRpUj0jUgUi3YJO98JoNpDbh__AmEpM-DL0i4gM0I15moACAZmc4ctbSD5pBdzkII42TkJHX9MQmB2JAsqWf1R2y6Ks7DTv7psv7Lc7zeY-cNDNBeNbFkPa8Su8r9_U60rZbEcFRlOVD9sWUD4OU6LZzLTlDWDfLwpqkG3exRP50aMzV4rI_7-R0F0Y9cWMiq6jlreGtUnTkw9Im0kM4KUzxlC5jKdrfO7Cxd3k1Eaj-covgNAzZtQOvL6fGC7nFrOgnMgeSbJQVhoGD5xFKx27LURSSdF0tm_bbYbr10IxdDkF2d-npw0fitvjWYeEbpy91Q-kdakm5JatndyK0C5GSDk4g3JoSD-u0R2V1V0A81VUv7lMl6fpQVtaEn-4IN5HziLulHPYzkQM1tka2WcmUoPGeolkIzmbtBa5EA_raYL3WulewQ_AWhnlnZca7SUgYCO4At-oOWeF8DrTh99tMqr4HCAkCY2N3RTMaDAgin2IkXFLIICwnykUNu_kPEIIuUqXsLZe_KPynkxYXZ8XcWEpFwwav9X3jQkwAUEEcwSXqJ90ozYRMO5WfspUlTYiGqimE57wy5efV0_SyykFk4uACcnYxSZRI1WkfEYeL5hr-UTsi7w_NDIZqIwJuQcmlKh5nC3Bh5bYt1xyLFn1vpsaxyY7YUhhqCqGHfK1T_ZJnxw5EIZXBrhTjaVfavGLWWmirWb7KUelKq-z90PhI3qf7mNePaUTio81KrQO4IDZpGLRPw6bO7mKq44x0nSaXBc1HCzVskcpihXM-EO2pdU7XXGHcxizZ7_2_C3Ur1Id3q193bRg6wKbH9dh24HNFIUhTtS33t1XezcCpBEKlHFjngFI_BeG3w=w1024-h1024-s-no?authuser=0" alt="User Profile" class="profile-image">
+            <h2>Upasana Rout</h2>
+            <p><strong>Email:</strong> harshavardhanponduru@gmail.com</p>
+            <p><strong>Phone:</strong> +91 969 241 5184</p>
+            <p><strong>Role:</strong> Member</p>
+            <p><strong>Group:</strong> B</p>
+            <p><strong>Roll Number:</strong> 2341018183</p>
+    </td>
+    </tr>
+<tr><td>
+    <div class="profile-container">
+        <div class="profile-details text-center">
+            <img src="https://lh3.googleusercontent.com/pw/AP1GczO-HsyAHoX7RdmOobaA2tgWM7I6M-dxANBKDtfBMzk9MG_ThZj6BsZzdRlhay4gocfy0OltSXpK5tcmYRyRal8DeAp3iS-Z5xcQvPl-4GiZ_GLoPQBXPvX88vFNIN_0WpI4b29Cm0t0eqvFN_tczHZhoKbSHIXfRgRpUj0jUgUi3YJO98JoNpDbh__AmEpM-DL0i4gM0I15moACAZmc4ctbSD5pBdzkII42TkJHX9MQmB2JAsqWf1R2y6Ks7DTv7psv7Lc7zeY-cNDNBeNbFkPa8Su8r9_U60rZbEcFRlOVD9sWUD4OU6LZzLTlDWDfLwpqkG3exRP50aMzV4rI_7-R0F0Y9cWMiq6jlreGtUnTkw9Im0kM4KUzxlC5jKdrfO7Cxd3k1Eaj-covgNAzZtQOvL6fGC7nFrOgnMgeSbJQVhoGD5xFKx27LURSSdF0tm_bbYbr10IxdDkF2d-npw0fitvjWYeEbpy91Q-kdakm5JatndyK0C5GSDk4g3JoSD-u0R2V1V0A81VUv7lMl6fpQVtaEn-4IN5HziLulHPYzkQM1tka2WcmUoPGeolkIzmbtBa5EA_raYL3WulewQ_AWhnlnZca7SUgYCO4At-oOWeF8DrTh99tMqr4HCAkCY2N3RTMaDAgin2IkXFLIICwnykUNu_kPEIIuUqXsLZe_KPynkxYXZ8XcWEpFwwav9X3jQkwAUEEcwSXqJ90ozYRMO5WfspUlTYiGqimE57wy5efV0_SyykFk4uACcnYxSZRI1WkfEYeL5hr-UTsi7w_NDIZqIwJuQcmlKh5nC3Bh5bYt1xyLFn1vpsaxyY7YUhhqCqGHfK1T_ZJnxw5EIZXBrhTjaVfavGLWWmirWb7KUelKq-z90PhI3qf7mNePaUTio81KrQO4IDZpGLRPw6bO7mKq44x0nSaXBc1HCzVskcpihXM-EO2pdU7XXGHcxizZ7_2_C3Ur1Id3q193bRg6wKbH9dh24HNFIUhTtS33t1XezcCpBEKlHFjngFI_BeG3w=w1024-h1024-s-no?authuser=0" alt="User Profile" class="profile-image">
+            <h2>Aneek Mukherjee</h2>
+            <p><strong>Email:</strong> harshavardhanponduru@gmail.com</p>
+            <p><strong>Phone:</strong> +91 954 781 0241</p>
+            <p><strong>Role:</strong> Member</p>
+            <p><strong>Group:</strong> B</p>
+            <p><strong>Roll Number:</strong> 2341013412</p>
+</td>
+<td>
+    <div class="profile-container">
+        <div class="profile-details text-center">
+            <img src="https://lh3.googleusercontent.com/pw/AP1GczO-HsyAHoX7RdmOobaA2tgWM7I6M-dxANBKDtfBMzk9MG_ThZj6BsZzdRlhay4gocfy0OltSXpK5tcmYRyRal8DeAp3iS-Z5xcQvPl-4GiZ_GLoPQBXPvX88vFNIN_0WpI4b29Cm0t0eqvFN_tczHZhoKbSHIXfRgRpUj0jUgUi3YJO98JoNpDbh__AmEpM-DL0i4gM0I15moACAZmc4ctbSD5pBdzkII42TkJHX9MQmB2JAsqWf1R2y6Ks7DTv7psv7Lc7zeY-cNDNBeNbFkPa8Su8r9_U60rZbEcFRlOVD9sWUD4OU6LZzLTlDWDfLwpqkG3exRP50aMzV4rI_7-R0F0Y9cWMiq6jlreGtUnTkw9Im0kM4KUzxlC5jKdrfO7Cxd3k1Eaj-covgNAzZtQOvL6fGC7nFrOgnMgeSbJQVhoGD5xFKx27LURSSdF0tm_bbYbr10IxdDkF2d-npw0fitvjWYeEbpy91Q-kdakm5JatndyK0C5GSDk4g3JoSD-u0R2V1V0A81VUv7lMl6fpQVtaEn-4IN5HziLulHPYzkQM1tka2WcmUoPGeolkIzmbtBa5EA_raYL3WulewQ_AWhnlnZca7SUgYCO4At-oOWeF8DrTh99tMqr4HCAkCY2N3RTMaDAgin2IkXFLIICwnykUNu_kPEIIuUqXsLZe_KPynkxYXZ8XcWEpFwwav9X3jQkwAUEEcwSXqJ90ozYRMO5WfspUlTYiGqimE57wy5efV0_SyykFk4uACcnYxSZRI1WkfEYeL5hr-UTsi7w_NDIZqIwJuQcmlKh5nC3Bh5bYt1xyLFn1vpsaxyY7YUhhqCqGHfK1T_ZJnxw5EIZXBrhTjaVfavGLWWmirWb7KUelKq-z90PhI3qf7mNePaUTio81KrQO4IDZpGLRPw6bO7mKq44x0nSaXBc1HCzVskcpihXM-EO2pdU7XXGHcxizZ7_2_C3Ur1Id3q193bRg6wKbH9dh24HNFIUhTtS33t1XezcCpBEKlHFjngFI_BeG3w=w1024-h1024-s-no?authuser=0" alt="User Profile" class="profile-image">
+            <h2>Kumar Amlan</h2>
+            <p><strong>Email:</strong> harshavardhanponduru@gmail.com</p>
+            <p><strong>Phone:</strong> +91 943 839 5539</p>
+            <p><strong>Role:</strong> Member</p>
+            <p><strong>Group:</strong> B</p>
+            <p><strong>Roll Number:</strong> 2341001080</p>
+    </td>
+    </tr>
+    </table>
+    <div class="container"><div class= "footer"><a href="./Main_Page.html" class="btn back-btn">Back to Task Management</a></div></div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
