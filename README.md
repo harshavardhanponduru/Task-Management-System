@@ -10,19 +10,19 @@ Planico is a web-based platform designed to provide an intuitive and user-friend
 The Landing Page serves as the entry point of the website. It provides an overview of the platform's features and invites users to log in or sign up to access their profiles.
 
 #### Source Code
-The source code for the Landing Page is located in `landing_page.html`.
+The source code for the Landing Page is located in `Landing_Page.html`.
 
 ### 2. Login Page
 The Login Page allows existing users to access their accounts by providing their credentials. Proper validation and error handling ensure a seamless login experience.
 
 #### Source Code
-The source code for the Login Page is located in `login_page.html`.
+The source code for the Login Page is located in `Login_Page.html`.
 
 ### 3. Signup Page
 New users can create an account using the Signup Page. The page collects essential user information and validates inputs to maintain data integrity.
 
 #### Source Code
-The source code for the Signup Page is located in `signup_page.html`.
+The source code for the Signup Page is located in `Sign_Up.html`.
 
 ### 3. Main Page
 This project is a web-based task management application that allows users to:
@@ -60,12 +60,14 @@ View task distribution and completion rates through charts:
 - Chart.js: Interactive and responsive charts.
 - Bootstrap 5.3: Framework for responsive design and UI components.
 
+#### Source Code
+The source code for the Profile Page is located in `Main_Page.html`.
 
 ### 4. Profile Page
 The Profile Page is a personalized space for users where they can view and manage their plans. It includes options for editing user details and preferences.
 
 #### Source Code
-The source code for the Profile Page is located in `profile_page.html`.
+The source code for the Profile Page is located in `Profile_Page.html`.
 
 ## Installation
 
@@ -86,11 +88,11 @@ The source code for the Profile Page is located in `profile_page.html`.
 
 3. Open the project folder in your preferred code editor to view or edit the source code.
 
-4. Serve the project using your local server or by opening `landing_page.html` in your web browser.
+4. Serve the project using your local server or by opening `Landing_Page.html` in your web browser.
 
 ## Usage
 
-1. Open the website in your browser by navigating to the local server's URL or double-clicking `landing_page.html`.
+1. Open the website in your browser by navigating to the local server's URL or double-clicking `Landing_Page.html`.
 2. Use the navigation menu to access the Login, Signup, or Profile pages.
 3. Create an account or log in to start using the platform.
 4. Explore the Profile Page to manage your plans and account details.
