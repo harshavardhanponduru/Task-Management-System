@@ -89,10 +89,6 @@ Planico is open-source and distributed under the MIT License. Feel free to use, 
 
 ---
 
-### Screenshots
-Add screenshots of each page for better visualization. (Optional)
-
----
 
 ### Future Scope
 - Adding a backend to enable user authentication and persistent data storage.
