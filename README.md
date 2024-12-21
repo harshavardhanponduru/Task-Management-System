@@ -24,6 +24,43 @@ New users can create an account using the Signup Page. The page collects essenti
 #### Source Code
 The source code for the Signup Page is located in `signup_page.html`.
 
+### 3. Main Page
+This project is a web-based task management application that allows users to:
+
+-- Add tasks with priority levels (High, Medium, Low).
+-- Sort tasks alphabetically or by date.
+-- Mark tasks as completed.
+-- View task data visually through dynamic charts (Pie, Bar, Line, and Histogram).
+
+The application leverages HTML, CSS, JavaScript, Bootstrap, and Chart.js for a rich user interface and experience.
+
+#### Features
+##### Task Management
+- Add tasks with a title, priority, and optional due date.
+- Display a list of tasks and mark them as completed.
+- Delete tasks from the list.
+- Separate sections for active and completed tasks.
+
+##### Sorting
+- Sort tasks alphabetically by their title.
+- Sort tasks by their due date.
+
+##### Visual Representation
+View task distribution and completion rates through charts:
+- Pie Chart: Distribution of tasks by priority.
+- Bar Chart: Comparison of total vs. completed tasks by priority.
+- Line Chart: Task completion rates by priority.
+- Histogram: Task distribution by priority.
+
+#### Technologies Used
+##### Frontend
+- HTML: Structure of the application.
+- CSS: Styling and layout, including Bootstrap for responsive design.
+- JavaScript/jQuery: Dynamic behavior and task management functionality.
+- Chart.js: Interactive and responsive charts.
+- Bootstrap 5.3: Framework for responsive design and UI components.
+
+
 ### 4. Profile Page
 The Profile Page is a personalized space for users where they can view and manage their plans. It includes options for editing user details and preferences.
 
