@@ -1,3 +1,5 @@
+<img src="./PLANICO Dark.svg">
+
 # Planico
 
 Planico is a web-based platform designed to provide an intuitive and user-friendly interface for users to manage their plans and schedules. The project consists of five core web pages, each serving a specific purpose.
@@ -86,9 +88,6 @@ We welcome contributions to enhance Planico. To contribute:
 ## License
 
 Planico is open-source and distributed under the MIT License. Feel free to use, modify, and share the project.
-
----
-<img src="./PLANICO Dark.svg">
 
 ### Future Scope
 - Adding a backend to enable user authentication and persistent data storage.
