@@ -88,7 +88,7 @@ We welcome contributions to enhance Planico. To contribute:
 Planico is open-source and distributed under the MIT License. Feel free to use, modify, and share the project.
 
 ---
-
+<img src="./PLANICO Dark.svg">
 
 ### Future Scope
 - Adding a backend to enable user authentication and persistent data storage.
