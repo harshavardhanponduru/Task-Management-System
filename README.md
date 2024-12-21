@@ -1,5 +1,3 @@
-<img src="./PLANICO Dark.svg">
-
 # Planico
 
 Planico is a web-based platform designed to provide an intuitive and user-friendly interface for users to manage their plans and schedules. The project consists of five core web pages, each serving a specific purpose.
@@ -24,46 +22,44 @@ New users can create an account using the Signup Page. The page collects essenti
 #### Source Code
 The source code for the Signup Page is located in `Sign_Up.html`.
 
-### 3. Main Page
-This project is a web-based task management application that allows users to:
+### 4. Main Page (Task Management)
+The Main Page is a web-based task management application that allows users to:
 
 - Add tasks with priority levels (High, Medium, Low).
 - Sort tasks alphabetically or by date.
 - Mark tasks as completed.
 - View task data visually through dynamic charts (Pie, Bar, Line, and Histogram).
 
-The application leverages HTML, CSS, JavaScript, Bootstrap, and Chart.js for a rich user interface and experience.
+#### Features
 
-### Features
-#### Task Management
+##### Task Management
 - Add tasks with a title, priority, and optional due date.
 - Display a list of tasks and mark them as completed.
 - Delete tasks from the list.
 - Separate sections for active and completed tasks.
 
-#### Sorting
+##### Sorting
 - Sort tasks alphabetically by their title.
 - Sort tasks by their due date.
 
-#### Visual Representation
+##### Visual Representation
 View task distribution and completion rates through charts:
-- Pie Chart: Distribution of tasks by priority.
-- Bar Chart: Comparison of total vs. completed tasks by priority.
-- Line Chart: Task completion rates by priority.
-- Histogram: Task distribution by priority.
+- **Pie Chart**: Distribution of tasks by priority.
+- **Bar Chart**: Comparison of total vs. completed tasks by priority.
+- **Line Chart**: Task completion rates by priority.
+- **Histogram**: Task distribution by priority.
 
-### Technologies Used
-#### Frontend
-- HTML: Structure of the application.
-- CSS: Styling and layout, including Bootstrap for responsive design.
-- JavaScript/jQuery: Dynamic behavior and task management functionality.
-- Chart.js: Interactive and responsive charts.
-- Bootstrap 5.3: Framework for responsive design and UI components.
+#### Technologies Used
+- **HTML**: Structure of the application.
+- **CSS**: Styling and layout, including Bootstrap for responsive design.
+- **JavaScript/jQuery**: Dynamic behavior and task management functionality.
+- **Chart.js**: Interactive and responsive charts.
+- **Bootstrap 5.3**: Framework for responsive design and UI components.
 
 #### Source Code
-The source code for the Profile Page is located in `Main_Page.html`.
+The source code for the Main Page is located in `Main_Page.html`.
 
-### 4. Profile Page
+### 5. Profile Page
 The Profile Page is a personalized space for users where they can view and manage their plans. It includes options for editing user details and preferences.
 
 #### Source Code
@@ -72,8 +68,8 @@ The source code for the Profile Page is located in `Profile_Page.html`.
 ## Installation
 
 ### Prerequisites
-- A modern web browser
-- A web server (e.g., Apache, Nginx) or a local server environment (e.g., XAMPP, WAMP, MAMP)
+- A modern web browser (e.g., Chrome, Firefox, Edge).
+- A web server (e.g., Apache, Nginx) or a local server environment (e.g., XAMPP, WAMP, MAMP).
 
 ### Steps to Run Locally
 1. Clone the repository to your local machine:
@@ -98,27 +94,20 @@ The source code for the Profile Page is located in `Profile_Page.html`.
 4. Explore the Profile Page to manage your plans and account details.
 
 ## Technology Stack
-
-- **HTML5**: For the structure and layout of the webpages
-- **CSS3**: For styling and visual elements
-- **JavaScript**: For interactive features and functionality
+- **HTML5**: For the structure and layout of the webpages.
+- **CSS3**: For styling and visual elements.
+- **JavaScript**: For interactive features and functionality.
 - **Backend (Optional)**: Add server-side scripting for authentication and database integration if required.
-
-## Features
-
-- Responsive design for compatibility with various devices
-- User-friendly forms with validation
-- Dynamic navigation between pages
 
 ## Contributing
 
 We welcome contributions to enhance Planico. To contribute:
 1. Fork the repository.
-2. Create a new branch for your feature or bug fix.
+2. Create a new branch for your feature or bug fix:
    ```bash
    git checkout -b feature-name
    ```
-3. Commit your changes with a descriptive message.
+3. Commit your changes with a descriptive message:
    ```bash
    git commit -m "Add feature-name"
    ```
@@ -128,7 +117,24 @@ We welcome contributions to enhance Planico. To contribute:
 
 Planico is open-source and distributed under the MIT License. Feel free to use, modify, and share the project.
 
-### Future Scope
+## Future Scope
+
 - Adding a backend to enable user authentication and persistent data storage.
 - Enhancing the design with advanced CSS frameworks like Bootstrap or Tailwind.
 - Introducing additional features such as task reminders, calendar integration, and sharing options.
+
+## Additional Information
+
+### Screenshot
+Include a screenshot of the application interface to help users better understand the platform.
+
+### Contact Us
+- **Email**: harshavardhanponduru@gmail.com
+- **Phone**: +91 955 626 3453
+
+### Credits
+Developed by Group B:
+- **P Harshavardhan** (2341008007)
+- **Upasana Rout** (2341018183)
+- **Aneek Mukherjee** (2341013412)
+- **Kumar Amlan** (2341001080)
