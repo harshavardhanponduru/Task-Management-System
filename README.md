@@ -27,10 +27,10 @@ The source code for the Signup Page is located in `signup_page.html`.
 ### 3. Main Page
 This project is a web-based task management application that allows users to:
 
--- Add tasks with priority levels (High, Medium, Low).
--- Sort tasks alphabetically or by date.
--- Mark tasks as completed.
--- View task data visually through dynamic charts (Pie, Bar, Line, and Histogram).
+- Add tasks with priority levels (High, Medium, Low).
+- Sort tasks alphabetically or by date.
+- Mark tasks as completed.
+- View task data visually through dynamic charts (Pie, Bar, Line, and Histogram).
 
 The application leverages HTML, CSS, JavaScript, Bootstrap, and Chart.js for a rich user interface and experience.
 
