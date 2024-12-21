@@ -1,4 +1,5 @@
 <img src="./PLANICO Dark.svg">
+
 # Planico
 
 Planico is a web-based platform designed to provide an intuitive and user-friendly interface for users to manage their plans and schedules. The project consists of five core web pages, each serving a specific purpose.
