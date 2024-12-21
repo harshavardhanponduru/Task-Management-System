@@ -34,26 +34,26 @@ This project is a web-based task management application that allows users to:
 
 The application leverages HTML, CSS, JavaScript, Bootstrap, and Chart.js for a rich user interface and experience.
 
-#### Features
-##### Task Management
+### Features
+#### Task Management
 - Add tasks with a title, priority, and optional due date.
 - Display a list of tasks and mark them as completed.
 - Delete tasks from the list.
 - Separate sections for active and completed tasks.
 
-##### Sorting
+#### Sorting
 - Sort tasks alphabetically by their title.
 - Sort tasks by their due date.
 
-##### Visual Representation
+#### Visual Representation
 View task distribution and completion rates through charts:
 - Pie Chart: Distribution of tasks by priority.
 - Bar Chart: Comparison of total vs. completed tasks by priority.
 - Line Chart: Task completion rates by priority.
 - Histogram: Task distribution by priority.
 
-#### Technologies Used
-##### Frontend
+### Technologies Used
+#### Frontend
 - HTML: Structure of the application.
 - CSS: Styling and layout, including Bootstrap for responsive design.
 - JavaScript/jQuery: Dynamic behavior and task management functionality.
