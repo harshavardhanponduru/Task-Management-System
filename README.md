@@ -127,9 +127,6 @@ Planico is open-source and distributed under the MIT License. Feel free to use, 
 
 ## Additional Information
 
-### Screenshot
-Include a screenshot of the application interface to help users better understand the platform.
-
 ### Contact Us
 - **Email**: harshavardhanponduru@gmail.com
 - **Phone**: +91 955 626 3453
